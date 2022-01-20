@@ -42,21 +42,14 @@ const (
 
 //----------------------------------------------------------------------------------------------------------------------------//
 
+// Автоматическая регистрация при запуске приложения
 func init() {
-	config.AddAuthMethod(module, &methodOptions{}, checkConfig)
+	config.AddAuthMethod(module, &methodOptions{})
 }
 
-func checkConfig(m *config.AuthMethod) (err error) {
+// Проверка валидности дополнительных опций метода
+func (options *methodOptions) Check(cfg interface{}) (err error) {
 	msgs := misc.NewMessages()
-
-	options, ok := m.Options.(*methodOptions)
-	if !ok {
-		msgs.Add(`%s.checkConfig: Options is "%T", expected "%T"`, module, m.Options, options)
-	}
-
-	if !m.Enabled {
-		return
-	}
 
 	if strings.TrimSpace(options.KeyFile) == "" {
 		msgs.Add(`%s.checkConfig: key-file parameter isn't defined"`, module)

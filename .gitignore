@@ -18,9 +18,9 @@
 .env
 
 _extra/
+vendor/
 logs/
 *.log
-error_log/
 
 TODO
 LAST_BUILD

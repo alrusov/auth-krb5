@@ -4,10 +4,10 @@ go 1.17
 
 require (
 	github.com/alrusov/auth v0.1.0
-	github.com/alrusov/config v0.1.43
-	github.com/alrusov/log v0.1.30
+	github.com/alrusov/config v0.1.45
+	github.com/alrusov/log v0.1.31
 	github.com/alrusov/misc v0.1.49
-	github.com/alrusov/stdhttp v0.1.97
+	github.com/alrusov/stdhttp v0.1.99
 	gopkg.in/jcmturner/goidentity.v3 v3.0.0
 	gopkg.in/jcmturner/gokrb5.v7 v7.5.0
 )
@@ -24,7 +24,7 @@ require (
 	github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742 // indirect
 	github.com/naoina/go-stringutil v0.1.0 // indirect
 	github.com/naoina/toml v0.1.1 // indirect
-	golang.org/x/crypto v0.0.0-20211117183948-ae814b36b871 // indirect
+	golang.org/x/crypto v0.0.0-20220112180741-5e0467b6c7ce // indirect
 	gopkg.in/jcmturner/aescts.v1 v1.0.1 // indirect
 	gopkg.in/jcmturner/dnsutils.v1 v1.0.1 // indirect
 	gopkg.in/jcmturner/rpc.v1 v1.1.0 // indirect
