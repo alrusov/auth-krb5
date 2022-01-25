@@ -167,7 +167,7 @@ func (ah *AuthHandler) Check(id uint64, prefix string, path string, w http.Respo
 
 func (ah *AuthHandler) negotiate(r *http.Request) (identity goidentity.Identity, err error) {
 	// Get the auth header
-	s := strings.SplitN(r.Header.Get("Authorization"), " ", 2)
+	s := strings.SplitN(r.Header.Get(auth.Header), " ", 2)
 	if len(s) != 2 || s[0] != method {
 		return
 	}

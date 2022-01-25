@@ -3,10 +3,10 @@ module github.com/alrusov/auth-krb5
 go 1.17
 
 require (
-	github.com/alrusov/auth v0.1.0
-	github.com/alrusov/config v0.1.45
+	github.com/alrusov/auth v0.1.1
+	github.com/alrusov/config v0.1.46
 	github.com/alrusov/log v0.1.31
-	github.com/alrusov/misc v0.1.49
+	github.com/alrusov/misc v0.1.51
 	github.com/alrusov/stdhttp v0.1.99
 	gopkg.in/jcmturner/goidentity.v3 v3.0.0
 	gopkg.in/jcmturner/gokrb5.v7 v7.5.0
