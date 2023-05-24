@@ -2,6 +2,7 @@ package krb5
 
 import (
 	"encoding/base64"
+	"errors"
 	"fmt"
 	"net/http"
 	"strings"
@@ -138,29 +139,29 @@ func (ah *AuthHandler) WWWAuthHeader() (name string, withRealm bool) {
 //----------------------------------------------------------------------------------------------------------------------------//
 
 // Check --
-func (ah *AuthHandler) Check(id uint64, prefix string, path string, w http.ResponseWriter, r *http.Request) (identity *auth.Identity, tryNext bool) {
+func (ah *AuthHandler) Check(id uint64, prefix string, path string, w http.ResponseWriter, r *http.Request) (identity *auth.Identity, tryNext bool, err error) {
 	if ah.kt == nil {
-		return nil, true
+		return nil, true, nil
 	}
 
 	goIdentity, err := ah.negotiate(r)
 
 	if err != nil {
 		auth.Log.Message(log.INFO, `[%d] Krb5 login error: %s`, id, err)
-		return nil, false
+		return nil, false, err
 	}
 
 	if goIdentity != nil {
-		return &auth.Identity{
-				Method: module,
-				User:   goIdentity.UserName(),
-				Groups: goIdentity.AuthzAttributes(),
-				Extra:  goIdentity,
-			},
-			false
+		userIdentity := &auth.Identity{
+			Method: module,
+			User:   goIdentity.UserName(),
+			Groups: goIdentity.AuthzAttributes(),
+			Extra:  goIdentity,
+		}
+		return userIdentity, false, nil
 	}
 
-	return nil, true
+	return nil, true, errors.New("user not found or illegal password")
 }
 
 //----------------------------------------------------------------------------------------------------------------------------//
