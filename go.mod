@@ -1,13 +1,13 @@
 module github.com/alrusov/auth-krb5
 
-go 1.19
+go 1.21.2
 
 require (
-	github.com/alrusov/auth v0.1.5
-	github.com/alrusov/config v0.1.53
+	github.com/alrusov/auth v0.1.6
+	github.com/alrusov/config v0.1.57
 	github.com/alrusov/log v0.1.37
-	github.com/alrusov/misc v1.1.8
-	github.com/alrusov/stdhttp v0.1.106
+	github.com/alrusov/misc v1.1.10
+	github.com/alrusov/stdhttp v0.1.116
 	gopkg.in/jcmturner/goidentity.v3 v3.0.0
 	gopkg.in/jcmturner/gokrb5.v7 v7.5.0
 )
@@ -23,7 +23,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/naoina/go-stringutil v0.1.0 // indirect
 	github.com/naoina/toml v0.1.1 // indirect
-	golang.org/x/crypto v0.3.0 // indirect
+	golang.org/x/crypto v0.14.0 // indirect
 	gopkg.in/jcmturner/aescts.v1 v1.0.1 // indirect
 	gopkg.in/jcmturner/dnsutils.v1 v1.0.1 // indirect
 	gopkg.in/jcmturner/rpc.v1 v1.1.0 // indirect
