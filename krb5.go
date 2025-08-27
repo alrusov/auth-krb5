@@ -51,6 +51,7 @@ func init() {
 // Проверка валидности дополнительных опций метода
 func (options *methodOptions) Check(cfg any) (err error) {
 	msgs := misc.NewMessages()
+	defer msgs.Free()
 
 	if strings.TrimSpace(options.KeyFile) == "" {
 		msgs.Add(`%s.checkConfig: key-file parameter isn't defined"`, module)
